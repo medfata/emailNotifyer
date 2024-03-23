@@ -46,12 +46,12 @@ class SmsNotificationStack(core.Stack):
         )
         
         # Create a Lambda function
-        hello_world_function = _lambda.Function(
+        request_handler_function = _lambda.Function(
             self,
             "HelloWorldFunction",
             runtime=_lambda.Runtime.PYTHON_3_8,
-            handler="hello_world.handler",
-            code=_lambda.Code.from_asset("../lambdas/hello_world"),
+            handler="request_handler.handler",
+            code=_lambda.Code.from_asset("../lambdas/request_handler"),
             layers=[powertools_layer],
             environment={
                 "DYNAMODB_TABLE_NAME": dynamo_table.table_name,
@@ -59,7 +59,7 @@ class SmsNotificationStack(core.Stack):
             },
         )
 
-        dynamo_table.grant_read_write_data(hello_world_function)
+        dynamo_table.grant_read_write_data(request_handler_function)
         dynamo_table.grant_read_write_data(notification_lambda_function)
 
         # Create an API Gateway
@@ -72,9 +72,9 @@ class SmsNotificationStack(core.Stack):
 
         # Create a resource and add a POST method
         sms_resource = api.root.add_resource("sms")
-        sms_resource.add_method("POST", apigateway.LambdaIntegration(hello_world_function))
+        sms_resource.add_method("POST", apigateway.LambdaIntegration(request_handler_function))
         # sms_with_id_resource = sms_resource.add_resource("{request_id}")
-        # sms_with_id_resource.add_method("GET", apigateway.LambdaIntegration(hello_world_function))
+        # sms_with_id_resource.add_method("GET", apigateway.LambdaIntegration(request_handler_function))
 
         client_sms_requests_bucket = s3.Bucket(
             scope=self, 
@@ -84,10 +84,10 @@ class SmsNotificationStack(core.Stack):
         api_gateway_role = iam.Role(scope=self, id='api_agteway_role',assumed_by=iam.ServicePrincipal('apigateway.amazonaws.com'))
         api_gateway_role.add_to_policy(iam.PolicyStatement(resources=[client_sms_requests_bucket.bucket_arn],actions=["s3:PutObject"]))
         client_sms_requests_bucket.grant_read_write(api_gateway_role)
-        client_sms_requests_bucket.grant_read(hello_world_function)
+        client_sms_requests_bucket.grant_read(request_handler_function)
 
         # Add S3 event trigger to Lambda
-        hello_world_function.add_event_source(aws_lambda_event_sources.S3EventSource(client_sms_requests_bucket, events=[s3.EventType.OBJECT_CREATED]))
+        request_handler_function.add_event_source(aws_lambda_event_sources.S3EventSource(client_sms_requests_bucket, events=[s3.EventType.OBJECT_CREATED]))
 
         #PutObject method
         putObjectIntegration = apigateway.AwsIntegration(
@@ -140,5 +140,5 @@ class SmsNotificationStack(core.Stack):
                 resources=["*"]
             )
         )
-        notification_lambda_function.grant_invoke(hello_world_function)
+        notification_lambda_function.grant_invoke(request_handler_function)
         ses_email_identity = ses.CfnEmailIdentity(scope=self,id="emailSender", email_identity="medfata3@gmail.com")

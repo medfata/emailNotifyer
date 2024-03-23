@@ -8,6 +8,7 @@ import os
 from uuid import uuid4
 import time 
 
+#the allow_origin url is set to 'http://localhost:5173'  just for my local frontend app 
 cors_config = CORSConfig(allow_origin="http://localhost:5173", max_age=300)
 app = APIGatewayRestResolver(cors=cors_config)
 
@@ -21,7 +22,7 @@ s3_client = boto3.client('s3')
 target_function_name = os.environ.get("FUNCTION_NAME")
 
 @app.post("/sms")
-def create_todo():
+def create_request():
     body: dict = app.current_event.json_body
     logger.info(f"Triggering post request handler with the following body: {body}")
 
@@ -59,7 +60,7 @@ def create_todo():
     return response_body
 
 @app.get("/sms/<requrest_id>")
-def get_todos(requrest_id:str):
+def get_request(requrest_id:str):
     if not requrest_id:
         return {
                 'statusCode': 400,
