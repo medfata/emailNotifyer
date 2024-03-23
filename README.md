@@ -77,7 +77,7 @@ As we can see, the API Gateway has 2 endpoints:
     }
     ```
 
-## a Custom FrontEnd integration
+## Custom FrontEnd integration
 
 images of my frontend app inetgration with the above API:
 
@@ -92,3 +92,9 @@ images of my frontend app inetgration with the above API:
   </tr>
 </table>
 
+## Limitations
+
+By default AWS SES doesn't send emails to random emails, to bypass this issue you will eather add your custome domain to send emails, 
+or add the receiving email identities to the AWS SES:
+
+![aws ses identities](images/aws_ses_identities.png)
