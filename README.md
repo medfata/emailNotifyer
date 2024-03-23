@@ -1,6 +1,6 @@
 # emailNotifyer
 
-a serverless application to send emails based on AWS SES 
+a serverless application to send emails based on AWS SES
 
 ## Global Architicture:
 
