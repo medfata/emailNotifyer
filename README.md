@@ -44,3 +44,51 @@ a serverless application to send emails based on AWS SES
   - `iam:CreateRole`
   - `iam:AttachRolePolicy`
   - `iam:PassRole`
+
+## API GATEWAY Endpoints
+
+![API Gateway Resources](images/apigateway_resources.png)
+
+As we can see, the API Gateway has 2 endpoints:
+
+- **POST**: `/sms/`
+  - **Method**: POST
+  - **Path**: /sms/
+  - **Integration**: this endpoiont is integrated with the request_handler lambda
+  - **Accepts as Body**:
+
+    ```json
+    {
+        "message": "string",
+        "email_list": ["string"]
+    }
+    ```
+
+- **PUT**: `/sms/{folder}/{file}`
+  - **Method**: PUT
+  - **Path**: /sms/{folder}/file
+  - **Integration**: this endpoiont is integrated with an S3 bucket to save the files
+  - **Accepts a JSON file**:
+
+    ```json
+    {
+        "message": "string",
+        "email_list": ["string"]
+    }
+    ```
+
+## a Custom FrontEnd integration
+
+images of my frontend app inetgration with the above API:
+
+<table>
+  <tr>
+    <td><img style="width:700px; height:500px;" src="images/message_interface.png" alt="message form"></td>
+    <td><img style="width:500px; height:500px;" src="images/notification_interface.png" alt="message form with success notification"></td>
+  </tr>
+  <tr>
+    <td><img style="width:700px; height:500px;" src="images/file_uploader_interface.png" alt="empty file uploader form"></td>
+    <td><img style="width:500px; height:500px;" src="images/full_file_uploader.png" alt="full file uploader form"></td>
+  </tr>
+</table>
+
