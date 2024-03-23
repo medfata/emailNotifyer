@@ -1,0 +1,909 @@
+{
+  "version": "21.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "SmsNotificationStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "SmsNotificationStack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/SmsNotificationStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce.zip",
+              "id": "dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce",
+              "packaging": "file",
+              "sourceHash": "dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce",
+              "s3BucketParameter": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3BucketD5972132",
+              "s3KeyParameter": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3VersionKey3F273D9E",
+              "artifactHashParameter": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceArtifactHash1A233F56"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:202:29)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new LayerVersion (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/layers.js:47:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5",
+              "id": "b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5",
+              "packaging": "zip",
+              "sourceHash": "b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5",
+              "s3BucketParameter": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3BucketF9D81F3D",
+              "s3KeyParameter": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3VersionKey26A06F10",
+              "artifactHashParameter": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5ArtifactHashE882A072"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:202:29)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba",
+              "id": "90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba",
+              "packaging": "zip",
+              "sourceHash": "90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba",
+              "s3BucketParameter": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3Bucket49D65F41",
+              "s3KeyParameter": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3VersionKey2B63FC1E",
+              "artifactHashParameter": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baArtifactHashE76FB93F"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:202:29)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/PowertoolsLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PowertoolsLayer17979D4B",
+            "trace": [
+              "new LayerVersion (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/layers.js:54:26)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3BucketD5972132",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new LayerVersion (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/layers.js:47:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3VersionKey3F273D9E",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new LayerVersion (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/layers.js:47:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceArtifactHash1A233F56",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new LayerVersion (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/layers.js:47:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3BucketF9D81F3D",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3VersionKey26A06F10",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5ArtifactHashE882A072",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3Bucket49D65F41",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3VersionKey2B63FC1E",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/AssetParameters/90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baArtifactHashE76FB93F",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:189:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:98:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack.js:473:33)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:59",
+              "withoutDeprecationWarnings (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:229:16)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:103:20)",
+              "new Asset (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:46:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/code.js:277:26)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:114:33)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/sms_table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "smstable8C2FA7B8",
+            "trace": [
+              "new Table (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:480:22)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/EmailNotificationLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EmailNotificationLambdaServiceRole7EE7B415",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:35)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/EmailNotificationLambda/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EmailNotificationLambdaServiceRoleDefaultPolicyBF094322",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Grant.addToPrincipal (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Table.combinedGrant (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:405:35)",
+              "Table.grantReadWriteData (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:203:21)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/EmailNotificationLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EmailNotificationLambda862708E6",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:172:26)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/HelloWorldFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldFunctionServiceRole8E0BD458",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:35)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/HelloWorldFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldFunctionServiceRoleDefaultPolicy6CCD7798",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Grant.addToPrincipal (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Table.combinedGrant (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:405:35)",
+              "Table.grantReadWriteData (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:203:21)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/HelloWorldFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldFunctionB2AB6E79",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function.js:172:26)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApi49610EDF",
+            "trace": [
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:446:26)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiCloudWatchRole2BEC1A9C",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "RestApi._configureCloudWatchRole (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:270:22)",
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:463:18)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiAccount13882D84",
+            "trace": [
+              "RestApi._configureCloudWatchRole (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:274:34)",
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:463:18)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiDeploymentECB0D05Ec335aa8952709b61d88b3ac0abde64dd",
+            "trace": [
+              "new Deployment (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/deployment.js:53:25)",
+              "RestApi._configureDeployment (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:317:38)",
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:465:14)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiDeploymentStageprodE1054AF0",
+            "trace": [
+              "new Stage (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/stage.js:63:26)",
+              "RestApi._configureDeployment (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:325:36)",
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:465:14)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiEndpoint869ABE96",
+            "trace": [
+              "RestApi._configureDeployment (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:329:13)",
+              "new RestApi (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:465:14)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsEE3AC20E",
+            "trace": [
+              "new Resource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:234:26)",
+              "RootResource.addResource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:27:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/POST/ApiPermission.SmsNotificationStackMyApi226F1ADA.POST..sms": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsPOSTApiPermissionSmsNotificationStackMyApi226F1ADAPOSTsmsE8A9036E",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:84:9)",
+              "LambdaIntegration.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.js:55:22)",
+              "new Method (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/method.js:45:40)",
+              "Resource.addMethod (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:40:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/POST/ApiPermission.Test.SmsNotificationStackMyApi226F1ADA.POST..sms": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsPOSTApiPermissionTestSmsNotificationStackMyApi226F1ADAPOSTsms0D46ED27",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:84:9)",
+              "LambdaIntegration.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.js:62:26)",
+              "new Method (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/method.js:45:40)",
+              "Resource.addMethod (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:40:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsPOST0FAABBD6",
+            "trace": [
+              "new Method (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/method.js:61:26)",
+              "Resource.addMethod (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:40:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/{folder}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsfolder2C029443",
+            "trace": [
+              "new Resource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:234:26)",
+              "Resource.addResource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:27:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/{folder}/{item}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsfolderitem8CA2E149",
+            "trace": [
+              "new Resource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:234:26)",
+              "Resource.addResource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:27:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/MyApi/Default/sms/{folder}/{item}/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApismsfolderitemPUTCF48C30D",
+            "trace": [
+              "new Method (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/method.js:61:26)",
+              "Resource.addMethod (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:40:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/client_sms_requests_bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "clientsmsrequestsbucketB7B1122C",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/client_sms_requests_bucket/Notifications/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "clientsmsrequestsbucketNotificationsF011A898",
+            "trace": [
+              "BucketNotifications.createResourceOnce (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:104:29)",
+              "BucketNotifications.addNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:46:31)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:63",
+              "Bucket.withNotifications (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:416:9)",
+              "Bucket.addEventNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:14)",
+              "S3EventSource.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda-event-sources/lib/s3.js:28:25)",
+              "Function.addEventSource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:188:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/client_sms_requests_bucket/AllowBucketNotificationsToSmsNotificationStackHelloWorldFunctionD47FD0CF": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "clientsmsrequestsbucketAllowBucketNotificationsToSmsNotificationStackHelloWorldFunctionD47FD0CFA5FE4D40",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:84:9)",
+              "LambdaDestination.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3-notifications/lib/lambda.js:26:21)",
+              "BucketNotifications.addNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:49:36)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:63",
+              "Bucket.withNotifications (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:416:9)",
+              "Bucket.addEventNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:14)",
+              "S3EventSource.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda-event-sources/lib/s3.js:28:25)",
+              "Function.addEventSource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:188:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/api_agteway_role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiagtewayroleD4D586DE",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/api_agteway_role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiagtewayroleDefaultPolicy5A141EA5",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new NotificationsResourceHandler (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:34:35)",
+              "NotificationsResourceHandler.singleton (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:86:22)",
+              "BucketNotifications.createResourceOnce (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:94:91)",
+              "BucketNotifications.addNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:46:31)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:63",
+              "Bucket.withNotifications (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:416:9)",
+              "Bucket.addEventNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:14)",
+              "S3EventSource.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda-event-sources/lib/s3.js:28:25)",
+              "Function.addEventSource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:188:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "new NotificationsResourceHandler (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:38:19)",
+              "NotificationsResourceHandler.singleton (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:86:22)",
+              "BucketNotifications.createResourceOnce (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:94:91)",
+              "BucketNotifications.addNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:46:31)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:63",
+              "Bucket.withNotifications (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:416:9)",
+              "Bucket.addEventNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:14)",
+              "S3EventSource.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda-event-sources/lib/s3.js:28:25)",
+              "Function.addEventSource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:188:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691",
+            "trace": [
+              "new NotificationsResourceHandler (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:60:26)",
+              "NotificationsResourceHandler.singleton (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource-handler.js:86:22)",
+              "BucketNotifications.createResourceOnce (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:94:91)",
+              "BucketNotifications.addNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/notifications-resource/notifications-resource.js:46:31)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:63",
+              "Bucket.withNotifications (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:416:9)",
+              "Bucket.addEventNotification (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-s3/lib/bucket.js:407:14)",
+              "S3EventSource.bind (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda-event-sources/lib/s3.js:28:25)",
+              "Function.addEventSource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:188:16)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/emailSender": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "emailSender",
+            "trace": [
+              "Kernel._Kernel_create (/tmp/tmpwva_65b5/lib/program.js:10108:25)",
+              "Kernel.create (/tmp/tmpwva_65b5/lib/program.js:9779:93)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/SmsNotificationStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-x7fCgc/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpwva_65b5/lib/program.js:9855:172",
+              "Kernel._Kernel_ensureSync (/tmp/tmpwva_65b5/lib/program.js:10480:24)",
+              "Kernel.invoke (/tmp/tmpwva_65b5/lib/program.js:9855:102)",
+              "KernelHost.processRequest (/tmp/tmpwva_65b5/lib/program.js:11699:36)",
+              "KernelHost.run (/tmp/tmpwva_65b5/lib/program.js:11659:22)",
+              "Immediate._onImmediate (/tmp/tmpwva_65b5/lib/program.js:11660:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "SmsNotificationStack"
+    }
+  }
+}

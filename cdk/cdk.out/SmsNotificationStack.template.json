@@ -1,0 +1,1311 @@
+{
+ "Resources": {
+  "PowertoolsLayer17979D4B": {
+   "Type": "AWS::Lambda::LayerVersion",
+   "Properties": {
+    "Content": {
+     "S3Bucket": {
+      "Ref": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3BucketD5972132"
+     },
+     "S3Key": {
+      "Fn::Join": [
+       "",
+       [
+        {
+         "Fn::Select": [
+          0,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3VersionKey3F273D9E"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "Fn::Select": [
+          1,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3VersionKey3F273D9E"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      ]
+     }
+    },
+    "CompatibleRuntimes": [
+     "python3.8"
+    ],
+    "Description": "Layer containing aws_lambda_powertools"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/PowertoolsLayer/Resource",
+    "aws:asset:path": "asset.dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Content"
+   }
+  },
+  "smstable8C2FA7B8": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "ReadCapacityUnits": 5,
+     "WriteCapacityUnits": 5
+    },
+    "TimeToLiveSpecification": {
+     "AttributeName": "ttl",
+     "Enabled": true
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/sms_table/Resource"
+   }
+  },
+  "EmailNotificationLambdaServiceRole7EE7B415": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/EmailNotificationLambda/ServiceRole/Resource"
+   }
+  },
+  "EmailNotificationLambdaServiceRoleDefaultPolicyBF094322": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:Query",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "smstable8C2FA7B8",
+          "Arn"
+         ]
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      },
+      {
+       "Action": [
+        "ses:SendRawEmail",
+        "ses:SendEmail"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "EmailNotificationLambdaServiceRoleDefaultPolicyBF094322",
+    "Roles": [
+     {
+      "Ref": "EmailNotificationLambdaServiceRole7EE7B415"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/EmailNotificationLambda/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "EmailNotificationLambda862708E6": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Ref": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3BucketF9D81F3D"
+     },
+     "S3Key": {
+      "Fn::Join": [
+       "",
+       [
+        {
+         "Fn::Select": [
+          0,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3VersionKey26A06F10"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "Fn::Select": [
+          1,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3VersionKey26A06F10"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      ]
+     }
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "EmailNotificationLambdaServiceRole7EE7B415",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "DYNAMODB_TABLE_NAME": {
+       "Ref": "smstable8C2FA7B8"
+      }
+     }
+    },
+    "Handler": "email_notify.handler",
+    "Layers": [
+     {
+      "Ref": "PowertoolsLayer17979D4B"
+     }
+    ],
+    "Runtime": "python3.8"
+   },
+   "DependsOn": [
+    "EmailNotificationLambdaServiceRoleDefaultPolicyBF094322",
+    "EmailNotificationLambdaServiceRole7EE7B415"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/EmailNotificationLambda/Resource",
+    "aws:asset:path": "asset.b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "HelloWorldFunctionServiceRole8E0BD458": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/HelloWorldFunction/ServiceRole/Resource"
+   }
+  },
+  "HelloWorldFunctionServiceRoleDefaultPolicy6CCD7798": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:Query",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "smstable8C2FA7B8",
+          "Arn"
+         ]
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "clientsmsrequestsbucketB7B1122C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "clientsmsrequestsbucketB7B1122C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "EmailNotificationLambda862708E6",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "EmailNotificationLambda862708E6",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "HelloWorldFunctionServiceRoleDefaultPolicy6CCD7798",
+    "Roles": [
+     {
+      "Ref": "HelloWorldFunctionServiceRole8E0BD458"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/HelloWorldFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "HelloWorldFunctionB2AB6E79": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Ref": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3Bucket49D65F41"
+     },
+     "S3Key": {
+      "Fn::Join": [
+       "",
+       [
+        {
+         "Fn::Select": [
+          0,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3VersionKey2B63FC1E"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "Fn::Select": [
+          1,
+          {
+           "Fn::Split": [
+            "||",
+            {
+             "Ref": "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3VersionKey2B63FC1E"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      ]
+     }
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "HelloWorldFunctionServiceRole8E0BD458",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "DYNAMODB_TABLE_NAME": {
+       "Ref": "smstable8C2FA7B8"
+      },
+      "FUNCTION_NAME": {
+       "Ref": "EmailNotificationLambda862708E6"
+      }
+     }
+    },
+    "Handler": "hello_world.handler",
+    "Layers": [
+     {
+      "Ref": "PowertoolsLayer17979D4B"
+     }
+    ],
+    "Runtime": "python3.8"
+   },
+   "DependsOn": [
+    "HelloWorldFunctionServiceRoleDefaultPolicy6CCD7798",
+    "HelloWorldFunctionServiceRole8E0BD458"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/HelloWorldFunction/Resource",
+    "aws:asset:path": "asset.90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "MyApi49610EDF": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "Description": "My API Gateway",
+    "Name": "MyApi"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Resource"
+   }
+  },
+  "MyApiCloudWatchRole2BEC1A9C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/CloudWatchRole/Resource"
+   }
+  },
+  "MyApiAccount13882D84": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "MyApiCloudWatchRole2BEC1A9C",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "MyApi49610EDF"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Account"
+   }
+  },
+  "MyApiDeploymentECB0D05Ec335aa8952709b61d88b3ac0abde64dd": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "Description": "Automatically created by the RestApi construct"
+   },
+   "DependsOn": [
+    "MyApismsfolderitemPUTCF48C30D",
+    "MyApismsfolderitem8CA2E149",
+    "MyApismsfolder2C029443",
+    "MyApismsPOST0FAABBD6",
+    "MyApismsEE3AC20E"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Deployment/Resource"
+   }
+  },
+  "MyApiDeploymentStageprodE1054AF0": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "DeploymentId": {
+     "Ref": "MyApiDeploymentECB0D05Ec335aa8952709b61d88b3ac0abde64dd"
+    },
+    "StageName": "prod"
+   },
+   "DependsOn": [
+    "MyApiAccount13882D84"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/DeploymentStage.prod/Resource"
+   }
+  },
+  "MyApismsEE3AC20E": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "MyApi49610EDF",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "sms",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/Resource"
+   }
+  },
+  "MyApismsPOSTApiPermissionSmsNotificationStackMyApi226F1ADAPOSTsmsE8A9036E": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "HelloWorldFunctionB2AB6E79",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "MyApi49610EDF"
+       },
+       "/",
+       {
+        "Ref": "MyApiDeploymentStageprodE1054AF0"
+       },
+       "/POST/sms"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/POST/ApiPermission.SmsNotificationStackMyApi226F1ADA.POST..sms"
+   }
+  },
+  "MyApismsPOSTApiPermissionTestSmsNotificationStackMyApi226F1ADAPOSTsms0D46ED27": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "HelloWorldFunctionB2AB6E79",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "MyApi49610EDF"
+       },
+       "/test-invoke-stage/POST/sms"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/POST/ApiPermission.Test.SmsNotificationStackMyApi226F1ADA.POST..sms"
+   }
+  },
+  "MyApismsPOST0FAABBD6": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "POST",
+    "ResourceId": {
+     "Ref": "MyApismsEE3AC20E"
+    },
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "HelloWorldFunctionB2AB6E79",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/POST/Resource"
+   }
+  },
+  "MyApismsfolder2C029443": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "MyApismsEE3AC20E"
+    },
+    "PathPart": "{folder}",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/{folder}/Resource"
+   }
+  },
+  "MyApismsfolderitem8CA2E149": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "MyApismsfolder2C029443"
+    },
+    "PathPart": "{item}",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/{folder}/{item}/Resource"
+   }
+  },
+  "MyApismsfolderitemPUTCF48C30D": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "PUT",
+    "ResourceId": {
+     "Ref": "MyApismsfolderitem8CA2E149"
+    },
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "Credentials": {
+      "Fn::GetAtt": [
+       "apiagtewayroleD4D586DE",
+       "Arn"
+      ]
+     },
+     "IntegrationHttpMethod": "PUT",
+     "IntegrationResponses": [
+      {
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "WHEN_NO_TEMPLATES",
+     "RequestParameters": {
+      "integration.request.path.bucket": "method.request.path.folder",
+      "integration.request.path.object": "method.request.path.item",
+      "integration.request.header.Accept": "method.request.header.Accept"
+     },
+     "Type": "AWS",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:eu-west-1:s3:path/{bucket}/{object}"
+       ]
+      ]
+     }
+    },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ],
+    "RequestParameters": {
+     "method.request.path.folder": true,
+     "method.request.path.item": true,
+     "method.request.header.Accept": true,
+     "method.request.header.Content-Type": true
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/MyApi/Default/sms/{folder}/{item}/PUT/Resource"
+   }
+  },
+  "clientsmsrequestsbucketB7B1122C": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "sms--eu-west-1"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/client_sms_requests_bucket/Resource"
+   }
+  },
+  "clientsmsrequestsbucketNotificationsF011A898": {
+   "Type": "Custom::S3BucketNotifications",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "clientsmsrequestsbucketB7B1122C"
+    },
+    "NotificationConfiguration": {
+     "LambdaFunctionConfigurations": [
+      {
+       "Events": [
+        "s3:ObjectCreated:*"
+       ],
+       "LambdaFunctionArn": {
+        "Fn::GetAtt": [
+         "HelloWorldFunctionB2AB6E79",
+         "Arn"
+        ]
+       }
+      }
+     ]
+    },
+    "Managed": true
+   },
+   "DependsOn": [
+    "clientsmsrequestsbucketAllowBucketNotificationsToSmsNotificationStackHelloWorldFunctionD47FD0CFA5FE4D40"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/client_sms_requests_bucket/Notifications/Resource"
+   }
+  },
+  "clientsmsrequestsbucketAllowBucketNotificationsToSmsNotificationStackHelloWorldFunctionD47FD0CFA5FE4D40": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "HelloWorldFunctionB2AB6E79",
+      "Arn"
+     ]
+    },
+    "Principal": "s3.amazonaws.com",
+    "SourceAccount": {
+     "Ref": "AWS::AccountId"
+    },
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "clientsmsrequestsbucketB7B1122C",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/client_sms_requests_bucket/AllowBucketNotificationsToSmsNotificationStackHelloWorldFunctionD47FD0CF"
+   }
+  },
+  "apiagtewayroleD4D586DE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/api_agteway_role/Resource"
+   }
+  },
+  "apiagtewayroleDefaultPolicy5A141EA5": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:PutObject",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "clientsmsrequestsbucketB7B1122C",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject*",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "clientsmsrequestsbucketB7B1122C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "clientsmsrequestsbucketB7B1122C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "apiagtewayroleDefaultPolicy5A141EA5",
+    "Roles": [
+     {
+      "Ref": "apiagtewayroleD4D586DE"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/api_agteway_role/DefaultPolicy/Resource"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:PutBucketNotification",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
+    "Roles": [
+     {
+      "Ref": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Description": "AWS CloudFormation handler for \"Custom::S3BucketNotifications\" resources (@aws-cdk/aws-s3)",
+    "Code": {
+     "ZipFile": "import boto3  # type: ignore\nimport json\nimport logging\nimport urllib.request\n\ns3 = boto3.client(\"s3\")\n\nEVENTBRIDGE_CONFIGURATION = 'EventBridgeConfiguration'\n\nCONFIGURATION_TYPES = [\"TopicConfigurations\", \"QueueConfigurations\", \"LambdaFunctionConfigurations\"]\n\ndef handler(event: dict, context):\n  response_status = \"SUCCESS\"\n  error_message = \"\"\n  try:\n    props = event[\"ResourceProperties\"]\n    bucket = props[\"BucketName\"]\n    notification_configuration = props[\"NotificationConfiguration\"]\n    request_type = event[\"RequestType\"]\n    managed = props.get('Managed', 'true').lower() == 'true'\n    stack_id = event['StackId']\n\n    if managed:\n      config = handle_managed(request_type, notification_configuration)\n    else:\n      config = handle_unmanaged(bucket, stack_id, request_type, notification_configuration)\n\n    put_bucket_notification_configuration(bucket, config)\n  except Exception as e:\n    logging.exception(\"Failed to put bucket notification configuration\")\n    response_status = \"FAILED\"\n    error_message = f\"Error: {str(e)}. \"\n  finally:\n    submit_response(event, context, response_status, error_message)\n\ndef handle_managed(request_type, notification_configuration):\n  if request_type == 'Delete':\n    return {}\n  return notification_configuration\n\ndef handle_unmanaged(bucket, stack_id, request_type, notification_configuration):\n  external_notifications = find_external_notifications(bucket, stack_id)\n\n  if request_type == 'Delete':\n    return external_notifications\n\n  def with_id(notification):\n    notification['Id'] = f\"{stack_id}-{hash(json.dumps(notification, sort_keys=True))}\"\n    return notification\n\n  notifications = {}\n  for t in CONFIGURATION_TYPES:\n    external = external_notifications.get(t, [])\n    incoming = [with_id(n) for n in notification_configuration.get(t, [])]\n    notifications[t] = external + incoming\n\n  if EVENTBRIDGE_CONFIGURATION in notification_configuration:\n    notifications[EVENTBRIDGE_CONFIGURATION] = notification_configuration[EVENTBRIDGE_CONFIGURATION]\n  elif EVENTBRIDGE_CONFIGURATION in external_notifications:\n    notifications[EVENTBRIDGE_CONFIGURATION] = external_notifications[EVENTBRIDGE_CONFIGURATION]\n\n  return notifications\n\ndef find_external_notifications(bucket, stack_id):\n  existing_notifications = get_bucket_notification_configuration(bucket)\n  external_notifications = {}\n  for t in CONFIGURATION_TYPES:\n    external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'].startswith(f\"{stack_id}-\")]\n\n  if EVENTBRIDGE_CONFIGURATION in existing_notifications:\n    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]\n\n  return external_notifications\n\ndef get_bucket_notification_configuration(bucket):\n  return s3.get_bucket_notification_configuration(Bucket=bucket)\n\ndef put_bucket_notification_configuration(bucket, notification_configuration):\n  s3.put_bucket_notification_configuration(Bucket=bucket, NotificationConfiguration=notification_configuration)\n\ndef submit_response(event: dict, context, response_status: str, error_message: str):\n  response_body = json.dumps(\n    {\n      \"Status\": response_status,\n      \"Reason\": f\"{error_message}See the details in CloudWatch Log Stream: {context.log_stream_name}\",\n      \"PhysicalResourceId\": event.get(\"PhysicalResourceId\") or event[\"LogicalResourceId\"],\n      \"StackId\": event[\"StackId\"],\n      \"RequestId\": event[\"RequestId\"],\n      \"LogicalResourceId\": event[\"LogicalResourceId\"],\n      \"NoEcho\": False,\n    }\n  ).encode(\"utf-8\")\n  headers = {\"content-type\": \"\", \"content-length\": str(len(response_body))}\n  try:\n    req = urllib.request.Request(url=event[\"ResponseURL\"], headers=headers, data=response_body, method=\"PUT\")\n    with urllib.request.urlopen(req) as response:\n      print(response.read().decode(\"utf-8\"))\n    print(\"Status code: \" + response.reason)\n  except Exception as e:\n      print(\"send(..) failed executing request.urlopen(..): \" + str(e))\n"
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.7",
+    "Timeout": 300
+   },
+   "DependsOn": [
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource"
+   }
+  },
+  "emailSender": {
+   "Type": "AWS::SES::EmailIdentity",
+   "Properties": {
+    "EmailIdentity": "medfata3@gmail.com"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/emailSender"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQ3W7DIAyFn6X3lP7tAdZmnTRp06J02r1L3JY1QISNKoR49ymknbIrfz4GzsEruV4+yeXsGW40V+11kZTzKNOBQV3Flgj5wHDW9iwqZ4l9UCyqk63Bg0FGLxokF7zCQf0M3Icyn6qVs61m7WwWg0vqwBxbkOkdIvpv9KSdHc7961+DVXwfTLlGbzRReY02cxgSkixBBW1k2gV1Rd4BoRhxuDRSFm20YFx7lOkLjl0JVyALDUamxo1aqbXrtIrFslAW0OszMN4gytQg8bbX968+cKuUC5bFC/adiwZtcZ90wy6LxQiPLZW405X98QfyxbWDNFIWhCSrk90b0N1bi5Y1x5xFHfni7GIjV0u5Ws9+SOu5D5a1QdmM9Rd2V3PY7AEAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "SmsNotificationStack/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Parameters": {
+  "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3BucketD5972132": {
+   "Type": "String",
+   "Description": "S3 bucket for asset \"dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce\""
+  },
+  "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceS3VersionKey3F273D9E": {
+   "Type": "String",
+   "Description": "S3 key for asset version \"dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce\""
+  },
+  "AssetParametersdcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fceArtifactHash1A233F56": {
+   "Type": "String",
+   "Description": "Artifact hash for asset \"dcc177b8ba9bf5c77afd24cb69988276e2f3a85affd6af2cfebaf4840d635fce\""
+  },
+  "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3BucketF9D81F3D": {
+   "Type": "String",
+   "Description": "S3 bucket for asset \"b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5\""
+  },
+  "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5S3VersionKey26A06F10": {
+   "Type": "String",
+   "Description": "S3 key for asset version \"b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5\""
+  },
+  "AssetParametersb8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5ArtifactHashE882A072": {
+   "Type": "String",
+   "Description": "Artifact hash for asset \"b8ecf204941b12c6e08e7cf16f025f058c6204547d08c4ea7ce3094d19fb87e5\""
+  },
+  "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3Bucket49D65F41": {
+   "Type": "String",
+   "Description": "S3 bucket for asset \"90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba\""
+  },
+  "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baS3VersionKey2B63FC1E": {
+   "Type": "String",
+   "Description": "S3 key for asset version \"90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba\""
+  },
+  "AssetParameters90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63baArtifactHashE76FB93F": {
+   "Type": "String",
+   "Description": "Artifact hash for asset \"90d8629bcdce31d05b8c893931a31ce5127bb9100f43c6edfb91be930eff63ba\""
+  }
+ },
+ "Outputs": {
+  "MyApiEndpoint869ABE96": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "MyApi49610EDF"
+      },
+      ".execute-api.",
+      {
+       "Ref": "AWS::Region"
+      },
+      ".",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "MyApiDeploymentStageprodE1054AF0"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

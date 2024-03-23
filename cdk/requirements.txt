@@ -1,0 +1,8 @@
+# CDK Dependencies
+aws-cdk.core
+aws-cdk.aws_lambda
+aws-cdk.aws_apigateway
+aws-cdk.aws_dynamodb
+aws-cdk.aws_ses
+aws-cdk.aws_iam
+aws-cdk.aws_lambda_event_sources
